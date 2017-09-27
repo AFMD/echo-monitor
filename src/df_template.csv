@@ -1,0 +1,47 @@
+ --- Insitu ECHO meas template for data-frame used to store inputs and write file header - change at your own risk---,,,,
+key,value,units,fmf_name,fmf_category
+exp_name,experiment,,Experiment,*reference
+sample,Sample,,Sample,*reference
+user,user,,User,*reference
+date,date,,Date,*reference
+setup,,,Experimental_setup,setup
+vers,version,,Software_version,setup
+loc,"AFMD lab, ECHO",,Location,setup
+x_descript,V,/V,X_column,*data definitions
+y_descript,I,/A,Y_column,*data definitions
+sav_loc,NA,NA,,
+rec_len,NA,NA,,
+initialV,V, V,Initial_V,parameters
+initialV_units,V, V,Initial_V_units,units
+finalV,V, V,Final_V,parameters
+finalV_units,V, V,Final_V_units,units
+stepSize,V, V,V_step,parameters
+stepV_units,V, V,V_step,units
+holdTime,s, s,Hold_time,parameters
+baudR,,baudRate,setup,*setup
+termChar,termChar,termChar,setup,*setup
+connectionType,Connection,Connection,setup,*setup
+connectionAddr,Addr,Addr,setup,*setup
+4wire,Four wire,,Four_wire,setup
+complianceV,,,Compliance Exponent [Voltage],setup
+complianceI,,,Compliance Exponent [Current],setup
+integrationTime,,,Integration Time,setup
+route,Front,,setup,*setup
+takefixedV,NA,NA,Parameters,*parameters
+takeIVsweep,NA,NA,Parameters,*parameters
+fixedV,V, V,Fixed Voltage,parameters
+fixedV_units,V, V,Fixed Voltage,units
+nRepeatsV,,NA,Number of Samples,parameters
+pauseTimeV,s, s,Pause Time [Voltage],parameters
+takefixedI,NA,NA,Parameters,*parameters
+fixedI,I, A,Fixed Current,parameters
+fixedI_units,I, A,Fixed Current,units
+nRepeatsI,,NA,Number of Samples,parameters
+pauseTimeI,s, s,Pause Time [Current],parameters
+inficonAddr,Addr,Addr,setup,*setup
+QCM1,NA,NA,Parameters,*parameters
+QCM2,NA,NA,Parameters,*parameters
+QCM3,NA,NA,Parameters,*parameters
+QCM4,NA,NA,Parameters,*parameters
+QCM_display,NA,NA,Parameters,*parameters
+QCM_sampleTime,s,s,Parameters,*parameters
