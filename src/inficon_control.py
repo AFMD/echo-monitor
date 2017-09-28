@@ -1,6 +1,9 @@
-""" 
-Driver for Inficon SQC310C QCM controller.
-Code adapted from https://github.com/CINF/PyExpLabSys/blob/master/PyExpLabSys/drivers/inficon_sqm160.py
+__version__ = '0'
+
+"""
+  Author:  Ross <peregrine.warren@physics.ox.ac.uk>
+  Purpose: Driver for Inficon SQC310C QCM controller.
+  References: https://github.com/CINF/PyExpLabSys/blob/master/PyExpLabSys/drivers/inficon_sqm160.py
 """
 
 import serial
@@ -124,6 +127,19 @@ class inficon310C(object):
         status, frequency, life = value_string.split(' ')
         #life = float(value_string)
         return status, frequency,life
+    
+    def read_power(self, channel=4):
+        """Read output power"""
+        command = 'S? ' + str(channel)
+        value_string = self.comm(command)
+        power = float(value_string)
+        return power
+    
+    def set_power(self, power, channel=4):
+        """Set output power"""
+        command = 'S' + str(channel) + ' ' + str(power)
+        self.comm(command)
+        return
 
 if __name__ == "__main__":
     INFICON = inficon310C()

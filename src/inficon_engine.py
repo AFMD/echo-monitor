@@ -89,4 +89,7 @@ class inficon_engine():
         
         self.endDepositionData.emit(data)
         
+    def monitor_POWER(self, addr):
+        '''Read power output on a loop'''
+        pass
         
