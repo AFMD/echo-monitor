@@ -176,7 +176,7 @@
                 <number>2</number>
                </property>
                <property name="currentIndex">
-                <number>2</number>
+                <number>0</number>
                </property>
                <widget class="QWidget" name="page_IVmeas">
                 <layout class="QGridLayout" name="gridLayout_16">
@@ -205,7 +205,7 @@
                       <string>Take an IV sweep?</string>
                      </property>
                      <property name="checked">
-                      <bool>false</bool>
+                      <bool>true</bool>
                      </property>
                     </widget>
                    </item>
@@ -233,7 +233,7 @@
                         <double>-999.000000000000000</double>
                        </property>
                        <property name="maximum">
-                        <double>0.000000000000000</double>
+                        <double>100.000000000000000</double>
                        </property>
                        <property name="value">
                         <double>-10.000000000000000</double>
@@ -318,6 +318,9 @@
                        </property>
                        <property name="decimals">
                         <number>1</number>
+                       </property>
+                       <property name="minimum">
+                        <double>-100.000000000000000</double>
                        </property>
                        <property name="maximum">
                         <double>999.000000000000000</double>
@@ -1355,7 +1358,7 @@
      <x>0</x>
      <y>0</y>
      <width>605</width>
-     <height>26</height>
+     <height>27</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">

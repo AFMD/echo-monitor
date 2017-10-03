@@ -114,22 +114,24 @@ class k2400():
 		self.write("SENS:NPLC %s"%pars['integrationTime']) # Sets integration time for measurement
 	
 		if float(pars['initialV'])<float(pars['finalV']):
-			direction = 'UP'
+			Vstep = float(pars['stepSize']) * 1
 		else: 
-			direction = 'DOWN'
+			Vstep = float(pars['stepSize']) * -1
 	
 		#Sweep Settings: sweep structure seems to trig, delay, trig delay
 		self.write("SOUR:VOLT:STARt %s"%pars['initialV']) # in V 
 		self.write("SOUR:VOLT:STOP %s"%pars['finalV']) # in V
-		self.write("SOUR:VOLT:STEP %s"%pars['stepSize']) # in V       
+		self.write("SOUR:VOLT:STEP %s"%Vstep) # in V       
 		self.write("SOUR:DEL %s"%pars['holdTime']) # delay in s
 
 		self.write("TRIG:COUN %s"%self.query("SOUR:SWE:POIN?")) # set trigger to number of points in sweep
 		self.write("SOUR:VOLT:MODE SWE")    #select voltage sweep mode
+		
 		self.write("SOUR:SWE:RANG AUTO")    #Auto source ranging
 		self.write("SOUR:SWE:SPAC LIN")    #linear sweep
-		self.write("SOUR:SWE:DIR %s"%direction) #up/down
-	
+		
+		self.write("SOUR:SWE:DIR UP")
+		
 		self.write("FORM:ELEM VOLT,CURR") #configure what READ will return, RES problematic
 	
 		#measure
