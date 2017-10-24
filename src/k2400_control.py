@@ -141,4 +141,4 @@ class k2400():
 		v_data = data[::2]
 		self.write('OUTP OFF')
 		
-		return v_data,i_data 	
+		return v_data,i_data

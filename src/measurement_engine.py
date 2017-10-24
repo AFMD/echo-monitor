@@ -97,7 +97,6 @@ class IV_Engine():
     
     def measure_IVsweep(self, smu):
         
-        
         self.KeithleyConsole.emit('Commencing IV Sweep...')
         
         v = []
@@ -115,7 +114,28 @@ class IV_Engine():
         
         self.newIVData.emit(data) # for graph update
         self.endData.emit(data)
-        return v, i        
+        
+        if self.user_parameters.value['takeIVreverse'] == True:
+            
+            self.KeithleyConsole.emit('Commencing Reverse Sweep...')
+            
+            v = []
+            i = []
+            if self._flag: 
+                self.signalStatus.emit('Stopped.')
+                self.KeithleyConsole.emit('Measurement aborted')
+                return v, i
+            v, i = smu.measIVsweep(self.user_parameters.value)
+            data = v, i
+            
+            self.KeithleyConsole.emit('Voltage [V] \t Current [A]')
+            for n in range(len(v)):
+                self.KeithleyConsole.emit('%.4g \t %.4g' % (data[0][n], data[1][n]))
+            
+            self.newIVData.emit(data) # for graph update
+            self.endData.emit(data)            
+        
+        return v, i    
 
         
 class livePlot:

@@ -91,5 +91,6 @@ class inficon_engine():
         
     def monitor_POWER(self, addr):
         '''Read power output on a loop'''
-        pass
-        
+        while self._flag == False:
+            self.powerDisplay = self.inficon.read_power(channel=4)
+            time.sleep(1)

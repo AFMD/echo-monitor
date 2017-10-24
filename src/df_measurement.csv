@@ -1,21 +1,21 @@
  --- Insitu ECHO meas template for data-frame used to store inputs and write file header - change at your own risk---,,,,
 key,value,units,fmf_name,fmf_category
-exp_name,test, ,Experiment,*reference
-sample,test, ,Sample,*reference
+exp_name, , ,Experiment,*reference
+sample, , ,Sample,*reference
 user,ross, ,User,*reference
-date,2017-06-01 18:54:59.291727, ,Date,*reference
+date,2017-10-03 09:46:26.484231, ,Date,*reference
 setup,IVsweep, ,Experimental_setup,setup
 vers,2, ,Software_version,setup
 loc,"AFMD lab, ECHO", ,Location,setup
-x_descript,Time,s,X_column,*data definitions
-y_descript,"QCM1 thickness, QCM1 rate, QCM2 thickness, QCM2 rate, etc.", ,Y_column,*data definitions
-sav_loc,/home/ross/git/inSituConductivity, , , 
+x_descript,V,/V,X_column,*data definitions
+y_descript,I,/A,Y_column,*data definitions
+sav_loc,/home/ross/git/echo-monitor, , , 
 rec_len, , , , 
-initialV,-10.0, V,Initial_V,parameters
+initialV,-5.0, V,Initial_V,parameters
 initialV_units,1, V,Initial_V_units,units
-finalV,10.0, V,Final_V,parameters
+finalV,5.0, V,Final_V,parameters
 finalV_units,1, V,Final_V_units,units
-stepSize,0.5, V,V_step,parameters
+stepSize,0.2, V,V_step,parameters
 stepV_units,1, V,V_step,units
 holdTime,0.1, s,Hold_time,parameters
 baudR,57600,baudRate,setup,*setup
@@ -29,6 +29,7 @@ integrationTime,1, ,Integration Time,setup
 route,Front, ,setup,*setup
 takefixedV,False, ,Parameters,*parameters
 takeIVsweep,True, ,Parameters,*parameters
+takeIVreverse,True, ,Parameters,*parameters
 fixedV, , V,Fixed Voltage,parameters
 fixedV_units,1, V,Fixed Voltage,units
 nRepeatsV, , ,Number of Samples,parameters

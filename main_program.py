@@ -44,14 +44,20 @@ class programSetup(QObject):
         self.worker_thread1 = QThread()
         
         self.worker2 = inficonWorker() 
-        self.worker_thread2 = QThread()        
+        self.worker_thread2 = QThread()
+        
+        self.worker3 = inficonWorker() 
+        self.worker_thread3 = QThread()        
         
         # Move worker object to worker thread and start worker_thread.
         self.worker1.moveToThread(self.worker_thread1)
         self.worker_thread1.start()
         
         self.worker2.moveToThread(self.worker_thread2)
-        self.worker_thread2.start()        
+        self.worker_thread2.start()    
+        
+        self.worker3.moveToThread(self.worker_thread3)
+        self.worker_thread3.start()        
         
         # Make any cross object connections.
         self._connectSignals()
@@ -85,6 +91,9 @@ class programSetup(QObject):
         self.worker2.InficonConsole.connect(self.gui.writeInficonConsole)
         self.worker1.KeithleyConsole.connect(self.gui.writeKeithleyConsole)
         self.parent().aboutToQuit.connect(self.forceQuit)
+        # Metal tab signals
+        self.gui.mainWindow.metalStartButton.clicked.connect(self.worker3.startWork)
+        self.gui.mainWindow.metalStopButton.clicked.connect(self.forceWorkerReset3)
 
         
     def forceWorkerReset1(self):
@@ -96,6 +105,11 @@ class programSetup(QObject):
         if self.worker_thread2.isRunning():
             self.worker2.stopWork()
             self.signalStatus.emit('Inficon thread: Idle')
+            
+    def forceWorkerReset3(self):
+        if self.worker_thread3.isRunning():
+            self.worker3.stopWork()
+            self.signalStatus.emit('Metal thread: Idle')            
             
             
     def forceQuit(self):
@@ -172,6 +186,25 @@ class inficonWorker(QObject):
     @pyqtSlot()
     def stopWork(self):
         self._flag = True
+        
+class metalWorker(QObject):
+    
+    signalStatus = pyqtSignal(str)
+    powerDisplay = pyqtSignal(float)
+    
+    def __init__(self, parent=None):
+        super(self.__class__, self).__init__(parent)
+        
+    @pyqtSlot()        
+    def startWork(self):
+        self._flag = False
+        self.signalStatus.emit('Metal thread running...')
+        self.user_parameters = pd.DataFrame.from_csv('src/df_measurement.csv', header=1) # Get input parameters from df_measurement
+        inficon_engine.monitor_POWER(self, self.user_parameters.loc['inficonAddr'].value)
+        
+    @pyqtSlot()
+    def stopWork(self):
+        self._flag = True
     
 
 class mainWindow(QMainWindow):
@@ -214,6 +247,11 @@ class mainWindow(QMainWindow):
         self.mainWindow.plainTextEdit_2.ensureCursorVisible()
         self.mainWindow.plainTextEdit_2.insertPlainText(s) 
         self.mainWindow.plainTextEdit_2.insertPlainText('\n')
+        
+    @pyqtSlot(float)
+    def updatePowerDisplay(self, p):
+        '''Update power display metal'''
+        self.mainWindow.lcdPower.setDigitCount(p)
         
     @pyqtSlot(object)
     def getInputs(self):
