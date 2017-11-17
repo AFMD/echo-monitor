@@ -2,18 +2,18 @@
 key,value,units,fmf_name,fmf_category
 exp_name, , ,Experiment,*reference
 sample, , ,Sample,*reference
-user,warrenr, ,User,*reference
-date,2017-10-03 15:54:37.917076, ,Date,*reference
+user,ross, ,User,*reference
+date,2017-11-17 14:36:34.108325, ,Date,*reference
 setup,IVsweep, ,Experimental_setup,setup
 vers,2, ,Software_version,setup
 loc,"AFMD lab, ECHO", ,Location,setup
 x_descript,V,/V,X_column,*data definitions
 y_descript,I,/A,Y_column,*data definitions
-sav_loc,/home/warrenr/git/echo-monitor, , , 
+sav_loc,/home/ross/git/echo-monitor, , , 
 rec_len, , , , 
-initialV,10.0, V,Initial_V,parameters
+initialV,-3.0, V,Initial_V,parameters
 initialV_units,1, V,Initial_V_units,units
-finalV,-10.0, V,Final_V,parameters
+finalV,-14.0, V,Final_V,parameters
 finalV_units,1, V,Final_V_units,units
 stepSize,0.5, V,V_step,parameters
 stepV_units,1, V,V_step,units

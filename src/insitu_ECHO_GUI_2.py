@@ -123,7 +123,7 @@ class Ui_MainWindow(object):
         self.gridLayout_4.addWidget(self.doubleSpinBox, 0, 1, 1, 1)
         self.doubleSpinBox_3 = QtGui.QDoubleSpinBox(self.page_IVmeas)
         self.doubleSpinBox_3.setDecimals(3)
-        self.doubleSpinBox_3.setMinimum(-5.0)
+        self.doubleSpinBox_3.setMinimum(0.0)
         self.doubleSpinBox_3.setMaximum(5.0)
         self.doubleSpinBox_3.setSingleStep(0.5)
         self.doubleSpinBox_3.setProperty("value", 0.5)
@@ -568,7 +568,7 @@ class Ui_MainWindow(object):
         self.gridLayout_11.addWidget(self.tabWidget, 0, 0, 1, 1)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtGui.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 605, 27))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 605, 26))
         self.menubar.setObjectName(_fromUtf8("menubar"))
         self.menuFile = QtGui.QMenu(self.menubar)
         self.menuFile.setObjectName(_fromUtf8("menuFile"))
@@ -614,9 +614,9 @@ class Ui_MainWindow(object):
         self.pushButtonSave.setText(_translate("MainWindow", "Browse", None))
         self.label_24.setText(_translate("MainWindow", "Save Location", None))
         self.groupBox.setTitle(_translate("MainWindow", "Measurement Controls", None))
-        self.comboBox_Measurement.setItemText(0, _translate("MainWindow", "Deposition Monitor", None))
-        self.comboBox_Measurement.setItemText(1, _translate("MainWindow", "Electical Measurements", None))
-        self.comboBox_Measurement.setItemText(2, _translate("MainWindow", "Keithley Setup", None))
+        self.comboBox_Measurement.setItemText(0, _translate("MainWindow", "Electical Measurements", None))
+        self.comboBox_Measurement.setItemText(1, _translate("MainWindow", "Keithley Setup", None))
+        self.comboBox_Measurement.setItemText(2, _translate("MainWindow", "Deposition Monitor", None))
         self.comboBox_Measurement.setItemText(3, _translate("MainWindow", "Substrate Heating Control", None))
         self.label_7.setText(_translate("MainWindow", "IV Sweep", None))
         self.checkBox_IV.setAccessibleName(_translate("MainWindow", "takeIVsweep", None))
@@ -755,4 +755,4 @@ class Ui_MainWindow(object):
         self.actionLoad_settings.setShortcut(_translate("MainWindow", "Ctrl+R", None))
         self.actionContact_Ross.setText(_translate("MainWindow", "Contact Ross", None))
 
-from src.matplotlibwidget import MatplotlibWidget
+from src. matplotlibwidget import MatplotlibWidget
