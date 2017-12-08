@@ -5,6 +5,7 @@ __version__ = '2'
 
 """
   Author:  Ross <peregrine.warren@physics.ox.ac.uk>
+           Adapted from code by Ivan Ramirez <ivanrafaelramirez@gmail.com>
   Purpose: Main program for inSitu ECHO control. This creates and controls the threads and GUI.
   Last updated: 01/06/17
 """

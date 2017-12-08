@@ -8,6 +8,7 @@ Methods and classes used for conductivity measurements. Run in separate thread f
 import time
 import random
 import numpy as np
+import pandas as pd
 
 from src.k2400_control import * # conductivity engine controls keithley
 
@@ -97,25 +98,111 @@ class IV_Engine():
     
     def measure_IVsweep(self, smu):
         
-        
-        self.KeithleyConsole.emit('Commencing IV Sweep...')
-        
-        v = []
-        i = []
-        if self._flag: 
-            self.signalStatus.emit('Stopped.')
-            self.KeithleyConsole.emit('Measurement aborted')
+        # For single iv sweep
+        if self.user_parameters.value['ivLoop'] == 'False':
+
+            self.KeithleyConsole.emit('Commencing IV Sweep...')
+            
+            v = []
+            i = []
+            if self._flag: 
+                self.signalStatus.emit('Stopped.')
+                self.KeithleyConsole.emit('Measurement aborted')
+                return v, i
+            v, i = smu.measIVsweep(self.user_parameters.value)
+            data = v, i
+            
+            self.KeithleyConsole.emit('Voltage [V] \t Current [A]')
+            for n in range(len(v)):
+                self.KeithleyConsole.emit('%.4g \t %.4g' % (data[0][n], data[1][n]))
+            
+            self.newIVData.emit(data) # for graph update
+            self.endData.emit(data)
+            
+            # For REVERSE DIRECTION SWEEP
+            if self.user_parameters.value['forANDrev'] == 'True':
+                
+                self.KeithleyConsole.emit('Commencing IV Sweep in the other direction...')
+                
+                v = []
+                i = []
+                if self._flag: 
+                    self.signalStatus.emit('Stopped.')
+                    self.KeithleyConsole.emit('Measurement aborted')
+                    return v, i
+                # maths to reverse direction
+                self.user_parameters_rev_copy = pd.DataFrame.copy(self.user_parameters)
+                self.user_parameters_rev_copy.value['initialV'] = str(float(self.user_parameters.value['initialV'])*-1)
+                self.user_parameters_rev_copy.value['finalV'] = str(float(self.user_parameters.value['finalV'])*-1)
+                
+                v, i = smu.measIVsweep(self.user_parameters_rev_copy.value)
+                data = v, i
+                
+                self.KeithleyConsole.emit('Voltage [V] \t Current [A]')
+                for n in range(len(v)):
+                    self.KeithleyConsole.emit('%.4g \t %.4g' % (data[0][n], data[1][n]))
+                
+                self.newIVData.emit(data) # for graph update
+                self.endData.emit(data)                
+    
             return v, i
-        v, i = smu.measIVsweep(self.user_parameters.value)
-        data = v, i
         
-        self.KeithleyConsole.emit('Voltage [V] \t Current [A]')
-        for n in range(len(v)):
-            self.KeithleyConsole.emit('%.4g \t %.4g' % (data[0][n], data[1][n]))
-        
-        self.newIVData.emit(data) # for graph update
-        self.endData.emit(data)
-        return v, i        
+        # For iv on loop
+        if self.user_parameters.value['ivLoop'] == 'True':
+            
+            # Maths for rev direction sweep if necessary
+            
+            self.user_parameters_rev_copy = pd.DataFrame.copy(self.user_parameters)
+            self.user_parameters_rev_copy.value['initialV'] = str(float(self.user_parameters.value['initialV'])*-1)
+            self.user_parameters_rev_copy.value['finalV'] = str(float(self.user_parameters.value['finalV'])*-1)            
+            
+            ivNumber = 1
+            while ivNumber <= int(self.user_parameters.value['nRepeatsIV']):
+                
+                self.KeithleyConsole.emit('Commencing IV Sweep: LOOP = %s' % (ivNumber))
+                
+                v = []
+                i = []
+                if self._flag: 
+                    self.signalStatus.emit('Stopped.')
+                    self.KeithleyConsole.emit('Measurement aborted')
+                    return v, i
+                v, i = smu.measIVsweep(self.user_parameters.value)
+                data = v, i
+                
+                self.KeithleyConsole.emit('Voltage [V] \t Current [A]')
+                for n in range(len(v)):
+                    self.KeithleyConsole.emit('%.4g \t %.4g' % (data[0][n], data[1][n]))
+                
+                self.newIVData.emit(data) # for graph update
+                self.endData.emit(data)
+                
+                # For REVERSE DIRECTION SWEEP
+                if self.user_parameters.value['forANDrev'] == 'True':
+                    
+                    self.KeithleyConsole.emit('Commencing IV Sweep in the other direction...')
+                    
+                    v = []
+                    i = []
+                    if self._flag: 
+                        self.signalStatus.emit('Stopped.')
+                        self.KeithleyConsole.emit('Measurement aborted')
+                        return v, i
+                    
+                    v, i = smu.measIVsweep(self.user_parameters_rev_copy.value)
+                    data = v, i
+                    
+                    self.KeithleyConsole.emit('Voltage [V] \t Current [A]')
+                    for n in range(len(v)):
+                        self.KeithleyConsole.emit('%.4g \t %.4g' % (data[0][n], data[1][n]))
+                    
+                    self.newIVData.emit(data) # for graph update
+                    self.endData.emit(data)                 
+            
+                ivNumber += 1
+                time.sleep(float(self.user_parameters.value['ivLoopPauseTime'])*60) #Time between measurements IN MINUTES
+                
+            return v, i            
 
         
 class livePlot:

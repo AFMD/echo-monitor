@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>605</width>
-    <height>879</height>
+    <width>680</width>
+    <height>1054</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -47,36 +47,6 @@
            <widget class="QLabel" name="label_21">
             <property name="text">
              <string>Experiment Name</string>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="0">
-           <widget class="QLabel" name="label_23">
-            <property name="text">
-             <string>Sample</string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="1">
-           <widget class="QLineEdit" name="lineEdit_2">
-            <property name="accessibleName">
-             <string>exp_name</string>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-            <property name="placeholderText">
-             <string>&lt; Type of Measurement &gt;</string>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="1">
-           <widget class="QLineEdit" name="lineEdit_3">
-            <property name="accessibleName">
-             <string>sample</string>
-            </property>
-            <property name="placeholderText">
-             <string>&lt; Sample name &gt;</string>
             </property>
            </widget>
           </item>
@@ -124,6 +94,36 @@
            <widget class="QLabel" name="label_24">
             <property name="text">
              <string>Save Location</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QLineEdit" name="lineEdit_3">
+            <property name="accessibleName">
+             <string>sample</string>
+            </property>
+            <property name="placeholderText">
+             <string>&lt; Sample name &gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="label_23">
+            <property name="text">
+             <string>Sample</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QLineEdit" name="lineEdit_2">
+            <property name="accessibleName">
+             <string>exp_name</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="placeholderText">
+             <string>&lt; Type of Measurement &gt;</string>
             </property>
            </widget>
           </item>
@@ -180,403 +180,7 @@
                </property>
                <widget class="QWidget" name="page_IVmeas">
                 <layout class="QGridLayout" name="gridLayout_16">
-                 <item row="0" column="0">
-                  <layout class="QVBoxLayout" name="verticalLayout_4">
-                   <item>
-                    <widget class="QLabel" name="label_7">
-                     <property name="font">
-                      <font>
-                       <pointsize>11</pointsize>
-                       <weight>75</weight>
-                       <bold>true</bold>
-                      </font>
-                     </property>
-                     <property name="text">
-                      <string>IV Sweep</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
-                    <widget class="QCheckBox" name="checkBox_IV">
-                     <property name="accessibleName">
-                      <string>takeIVsweep</string>
-                     </property>
-                     <property name="text">
-                      <string>Take an IV sweep?</string>
-                     </property>
-                     <property name="checked">
-                      <bool>true</bool>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
-                    <layout class="QGridLayout" name="gridLayout_4">
-                     <item row="1" column="3">
-                      <widget class="QLabel" name="label_11">
-                       <property name="text">
-                        <string>Step Time</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="0" column="1">
-                      <widget class="QDoubleSpinBox" name="doubleSpinBox">
-                       <property name="accessibleName">
-                        <string>initialV</string>
-                       </property>
-                       <property name="suffix">
-                        <string/>
-                       </property>
-                       <property name="decimals">
-                        <number>1</number>
-                       </property>
-                       <property name="minimum">
-                        <double>-999.000000000000000</double>
-                       </property>
-                       <property name="maximum">
-                        <double>100.000000000000000</double>
-                       </property>
-                       <property name="value">
-                        <double>-10.000000000000000</double>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="1" column="1">
-                      <widget class="QDoubleSpinBox" name="doubleSpinBox_3">
-                       <property name="accessibleName">
-                        <string>stepSize</string>
-                       </property>
-                       <property name="decimals">
-                        <number>3</number>
-                       </property>
-                       <property name="minimum">
-                        <double>0.000000000000000</double>
-                       </property>
-                       <property name="maximum">
-                        <double>5.000000000000000</double>
-                       </property>
-                       <property name="singleStep">
-                        <double>0.500000000000000</double>
-                       </property>
-                       <property name="value">
-                        <double>0.500000000000000</double>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="0" column="0">
-                      <widget class="QLabel" name="label_8">
-                       <property name="text">
-                        <string>Initial Voltage</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="1" column="0">
-                      <widget class="QLabel" name="label_10">
-                       <property name="accessibleName">
-                        <string>Vstep</string>
-                       </property>
-                       <property name="text">
-                        <string>Voltage Step</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="1" column="4">
-                      <widget class="QDoubleSpinBox" name="doubleSpinBox_4">
-                       <property name="accessibleName">
-                        <string>holdTime</string>
-                       </property>
-                       <property name="suffix">
-                        <string/>
-                       </property>
-                       <property name="decimals">
-                        <number>2</number>
-                       </property>
-                       <property name="maximum">
-                        <double>60.000000000000000</double>
-                       </property>
-                       <property name="singleStep">
-                        <double>0.100000000000000</double>
-                       </property>
-                       <property name="value">
-                        <double>0.100000000000000</double>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="0" column="3">
-                      <widget class="QLabel" name="label_9">
-                       <property name="text">
-                        <string>Final Voltage</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="0" column="4">
-                      <widget class="QDoubleSpinBox" name="doubleSpinBox_2">
-                       <property name="accessibleName">
-                        <string>finalV</string>
-                       </property>
-                       <property name="suffix">
-                        <string/>
-                       </property>
-                       <property name="decimals">
-                        <number>1</number>
-                       </property>
-                       <property name="minimum">
-                        <double>-100.000000000000000</double>
-                       </property>
-                       <property name="maximum">
-                        <double>999.000000000000000</double>
-                       </property>
-                       <property name="value">
-                        <double>10.000000000000000</double>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="0" column="2">
-                      <widget class="QComboBox" name="initialV_units">
-                       <property name="accessibleName">
-                        <string>initialV_units</string>
-                       </property>
-                       <item>
-                        <property name="text">
-                         <string>V</string>
-                        </property>
-                       </item>
-                       <item>
-                        <property name="text">
-                         <string>mV</string>
-                        </property>
-                       </item>
-                       <item>
-                        <property name="text">
-                         <string>uV</string>
-                        </property>
-                       </item>
-                       <item>
-                        <property name="text">
-                         <string>nV</string>
-                        </property>
-                       </item>
-                      </widget>
-                     </item>
-                     <item row="1" column="2">
-                      <widget class="QComboBox" name="stepV_units">
-                       <property name="accessibleName">
-                        <string>stepV_units</string>
-                       </property>
-                       <item>
-                        <property name="text">
-                         <string>V</string>
-                        </property>
-                       </item>
-                       <item>
-                        <property name="text">
-                         <string>mV</string>
-                        </property>
-                       </item>
-                       <item>
-                        <property name="text">
-                         <string>uV</string>
-                        </property>
-                       </item>
-                       <item>
-                        <property name="text">
-                         <string>nV</string>
-                        </property>
-                       </item>
-                      </widget>
-                     </item>
-                     <item row="0" column="5">
-                      <widget class="QComboBox" name="finalV_units">
-                       <property name="accessibleName">
-                        <string>finalV_units</string>
-                       </property>
-                       <item>
-                        <property name="text">
-                         <string>V</string>
-                        </property>
-                       </item>
-                       <item>
-                        <property name="text">
-                         <string>mV</string>
-                        </property>
-                       </item>
-                       <item>
-                        <property name="text">
-                         <string>uV</string>
-                        </property>
-                       </item>
-                       <item>
-                        <property name="text">
-                         <string>nV</string>
-                        </property>
-                       </item>
-                      </widget>
-                     </item>
-                     <item row="1" column="5">
-                      <widget class="QComboBox" name="holdtime_units">
-                       <property name="accessibleName">
-                        <string>holdtime_units</string>
-                       </property>
-                       <item>
-                        <property name="text">
-                         <string>seconds</string>
-                        </property>
-                       </item>
-                      </widget>
-                     </item>
-                    </layout>
-                   </item>
-                  </layout>
-                 </item>
-                 <item row="1" column="0">
-                  <layout class="QVBoxLayout" name="verticalLayout_3">
-                   <item>
-                    <widget class="QLabel" name="label_6">
-                     <property name="font">
-                      <font>
-                       <pointsize>11</pointsize>
-                       <weight>75</weight>
-                       <bold>true</bold>
-                      </font>
-                     </property>
-                     <property name="layoutDirection">
-                      <enum>Qt::LeftToRight</enum>
-                     </property>
-                     <property name="text">
-                      <string>Source Voltage</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
-                    <widget class="QCheckBox" name="checkBox_fixedV">
-                     <property name="accessibleName">
-                      <string>takefixedV</string>
-                     </property>
-                     <property name="text">
-                      <string>Take fixed VOLTAGE measurements?</string>
-                     </property>
-                     <property name="checked">
-                      <bool>false</bool>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
-                    <layout class="QGridLayout" name="gridLayout_3">
-                     <item row="3" column="0">
-                      <widget class="QLabel" name="label_3">
-                       <property name="text">
-                        <string>Pause Time</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="2" column="1">
-                      <widget class="QSpinBox" name="spinBox_nRepeats">
-                       <property name="accessibleName">
-                        <string>nRepeatsV</string>
-                       </property>
-                       <property name="maximum">
-                        <number>1000</number>
-                       </property>
-                       <property name="value">
-                        <number>20</number>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="1" column="1">
-                      <widget class="QDoubleSpinBox" name="doubleSpinBox_Voltage">
-                       <property name="accessibleName">
-                        <string>fixedV</string>
-                       </property>
-                       <property name="suffix">
-                        <string/>
-                       </property>
-                       <property name="decimals">
-                        <number>1</number>
-                       </property>
-                       <property name="maximum">
-                        <double>100.000000000000000</double>
-                       </property>
-                       <property name="value">
-                        <double>1.000000000000000</double>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="1" column="0">
-                      <widget class="QLabel" name="label">
-                       <property name="text">
-                        <string>Voltage</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="2" column="0">
-                      <widget class="QLabel" name="label_2">
-                       <property name="text">
-                        <string>Number of measurements</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="3" column="1">
-                      <widget class="QDoubleSpinBox" name="doubleSpinBox_pauseTime">
-                       <property name="accessibleName">
-                        <string>pauseTimeV</string>
-                       </property>
-                       <property name="suffix">
-                        <string/>
-                       </property>
-                       <property name="decimals">
-                        <number>1</number>
-                       </property>
-                       <property name="maximum">
-                        <double>1000.000000000000000</double>
-                       </property>
-                       <property name="value">
-                        <double>0.500000000000000</double>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="1" column="2">
-                      <widget class="QComboBox" name="fixedV_units">
-                       <property name="accessibleName">
-                        <string>fixedV_units</string>
-                       </property>
-                       <item>
-                        <property name="text">
-                         <string>V</string>
-                        </property>
-                       </item>
-                       <item>
-                        <property name="text">
-                         <string>mV</string>
-                        </property>
-                       </item>
-                       <item>
-                        <property name="text">
-                         <string>uV</string>
-                        </property>
-                       </item>
-                       <item>
-                        <property name="text">
-                         <string>nV</string>
-                        </property>
-                       </item>
-                      </widget>
-                     </item>
-                     <item row="3" column="2">
-                      <widget class="QComboBox" name="fixedV_pausetime_units">
-                       <property name="accessibleName">
-                        <string>fixedV_pausetime_units</string>
-                       </property>
-                       <item>
-                        <property name="text">
-                         <string>seconds</string>
-                        </property>
-                       </item>
-                      </widget>
-                     </item>
-                    </layout>
-                   </item>
-                  </layout>
-                 </item>
-                 <item row="2" column="0">
+                 <item row="3" column="0">
                   <layout class="QVBoxLayout" name="verticalLayout_9">
                    <item>
                     <widget class="QLabel" name="label_16">
@@ -720,6 +324,481 @@
                        <item>
                         <property name="text">
                          <string>seconds</string>
+                        </property>
+                       </item>
+                      </widget>
+                     </item>
+                    </layout>
+                   </item>
+                  </layout>
+                 </item>
+                 <item row="2" column="0">
+                  <layout class="QVBoxLayout" name="verticalLayout_3">
+                   <item>
+                    <widget class="QLabel" name="label_6">
+                     <property name="font">
+                      <font>
+                       <pointsize>11</pointsize>
+                       <weight>75</weight>
+                       <bold>true</bold>
+                      </font>
+                     </property>
+                     <property name="layoutDirection">
+                      <enum>Qt::LeftToRight</enum>
+                     </property>
+                     <property name="text">
+                      <string>Source Voltage</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QCheckBox" name="checkBox_fixedV">
+                     <property name="accessibleName">
+                      <string>takefixedV</string>
+                     </property>
+                     <property name="text">
+                      <string>Take fixed VOLTAGE measurements?</string>
+                     </property>
+                     <property name="checked">
+                      <bool>false</bool>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <layout class="QGridLayout" name="gridLayout_3">
+                     <item row="1" column="2">
+                      <widget class="QComboBox" name="fixedV_units">
+                       <property name="accessibleName">
+                        <string>fixedV_units</string>
+                       </property>
+                       <item>
+                        <property name="text">
+                         <string>V</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>mV</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>uV</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>nV</string>
+                        </property>
+                       </item>
+                      </widget>
+                     </item>
+                     <item row="2" column="1">
+                      <widget class="QSpinBox" name="spinBox_nRepeats">
+                       <property name="accessibleName">
+                        <string>nRepeatsV</string>
+                       </property>
+                       <property name="maximum">
+                        <number>1000</number>
+                       </property>
+                       <property name="value">
+                        <number>20</number>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="1" column="1">
+                      <widget class="QDoubleSpinBox" name="doubleSpinBox_Voltage">
+                       <property name="accessibleName">
+                        <string>fixedV</string>
+                       </property>
+                       <property name="suffix">
+                        <string/>
+                       </property>
+                       <property name="decimals">
+                        <number>1</number>
+                       </property>
+                       <property name="maximum">
+                        <double>100.000000000000000</double>
+                       </property>
+                       <property name="value">
+                        <double>1.000000000000000</double>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="1" column="0">
+                      <widget class="QLabel" name="label">
+                       <property name="text">
+                        <string>Voltage</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="2" column="0">
+                      <widget class="QLabel" name="label_2">
+                       <property name="text">
+                        <string>Number of measurements</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="3" column="0">
+                      <widget class="QLabel" name="label_3">
+                       <property name="text">
+                        <string>Pause Time</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="3" column="1">
+                      <widget class="QDoubleSpinBox" name="doubleSpinBox_pauseTime">
+                       <property name="accessibleName">
+                        <string>pauseTimeV</string>
+                       </property>
+                       <property name="suffix">
+                        <string/>
+                       </property>
+                       <property name="decimals">
+                        <number>1</number>
+                       </property>
+                       <property name="maximum">
+                        <double>1000.000000000000000</double>
+                       </property>
+                       <property name="value">
+                        <double>0.500000000000000</double>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="3" column="2">
+                      <widget class="QComboBox" name="fixedV_pausetime_units">
+                       <property name="accessibleName">
+                        <string>fixedV_pausetime_units</string>
+                       </property>
+                       <item>
+                        <property name="text">
+                         <string>seconds</string>
+                        </property>
+                       </item>
+                      </widget>
+                     </item>
+                    </layout>
+                   </item>
+                  </layout>
+                 </item>
+                 <item row="0" column="0">
+                  <layout class="QVBoxLayout" name="verticalLayout_4">
+                   <item>
+                    <widget class="QLabel" name="label_7">
+                     <property name="font">
+                      <font>
+                       <pointsize>11</pointsize>
+                       <weight>75</weight>
+                       <bold>true</bold>
+                      </font>
+                     </property>
+                     <property name="text">
+                      <string>IV Sweep</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QCheckBox" name="checkBox_IV">
+                     <property name="accessibleName">
+                      <string>takeIVsweep</string>
+                     </property>
+                     <property name="text">
+                      <string>Take an IV sweep?</string>
+                     </property>
+                     <property name="checked">
+                      <bool>true</bool>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QCheckBox" name="checkBox_forANDrev">
+                     <property name="accessibleName">
+                      <string>forANDrev</string>
+                     </property>
+                     <property name="text">
+                      <string>Perform forward AND reverse direction?</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <layout class="QGridLayout" name="gridLayout_4">
+                     <item row="0" column="4">
+                      <widget class="QDoubleSpinBox" name="doubleSpinBox_2">
+                       <property name="accessibleName">
+                        <string>finalV</string>
+                       </property>
+                       <property name="suffix">
+                        <string/>
+                       </property>
+                       <property name="decimals">
+                        <number>1</number>
+                       </property>
+                       <property name="minimum">
+                        <double>-100.000000000000000</double>
+                       </property>
+                       <property name="maximum">
+                        <double>999.000000000000000</double>
+                       </property>
+                       <property name="value">
+                        <double>10.000000000000000</double>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="0" column="2">
+                      <widget class="QComboBox" name="initialV_units">
+                       <property name="accessibleName">
+                        <string>initialV_units</string>
+                       </property>
+                       <item>
+                        <property name="text">
+                         <string>V</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>mV</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>uV</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>nV</string>
+                        </property>
+                       </item>
+                      </widget>
+                     </item>
+                     <item row="1" column="2">
+                      <widget class="QComboBox" name="stepV_units">
+                       <property name="accessibleName">
+                        <string>stepV_units</string>
+                       </property>
+                       <item>
+                        <property name="text">
+                         <string>V</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>mV</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>uV</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>nV</string>
+                        </property>
+                       </item>
+                      </widget>
+                     </item>
+                     <item row="0" column="5">
+                      <widget class="QComboBox" name="finalV_units">
+                       <property name="accessibleName">
+                        <string>finalV_units</string>
+                       </property>
+                       <item>
+                        <property name="text">
+                         <string>V</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>mV</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>uV</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>nV</string>
+                        </property>
+                       </item>
+                      </widget>
+                     </item>
+                     <item row="1" column="5">
+                      <widget class="QComboBox" name="holdtime_units">
+                       <property name="accessibleName">
+                        <string>holdtime_units</string>
+                       </property>
+                       <item>
+                        <property name="text">
+                         <string>seconds</string>
+                        </property>
+                       </item>
+                      </widget>
+                     </item>
+                     <item row="0" column="0">
+                      <widget class="QLabel" name="label_8">
+                       <property name="text">
+                        <string>Initial Voltage</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="1" column="0">
+                      <widget class="QLabel" name="label_10">
+                       <property name="accessibleName">
+                        <string>Vstep</string>
+                       </property>
+                       <property name="text">
+                        <string>Voltage Step</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="1" column="4">
+                      <widget class="QDoubleSpinBox" name="doubleSpinBox_4">
+                       <property name="accessibleName">
+                        <string>holdTime</string>
+                       </property>
+                       <property name="suffix">
+                        <string/>
+                       </property>
+                       <property name="decimals">
+                        <number>2</number>
+                       </property>
+                       <property name="maximum">
+                        <double>60.000000000000000</double>
+                       </property>
+                       <property name="singleStep">
+                        <double>0.100000000000000</double>
+                       </property>
+                       <property name="value">
+                        <double>0.100000000000000</double>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="1" column="3">
+                      <widget class="QLabel" name="label_11">
+                       <property name="text">
+                        <string>Step Time</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="0" column="1">
+                      <widget class="QDoubleSpinBox" name="doubleSpinBox">
+                       <property name="accessibleName">
+                        <string>initialV</string>
+                       </property>
+                       <property name="suffix">
+                        <string/>
+                       </property>
+                       <property name="decimals">
+                        <number>1</number>
+                       </property>
+                       <property name="minimum">
+                        <double>-999.000000000000000</double>
+                       </property>
+                       <property name="maximum">
+                        <double>100.000000000000000</double>
+                       </property>
+                       <property name="value">
+                        <double>-10.000000000000000</double>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="1" column="1">
+                      <widget class="QDoubleSpinBox" name="doubleSpinBox_3">
+                       <property name="accessibleName">
+                        <string>stepSize</string>
+                       </property>
+                       <property name="decimals">
+                        <number>3</number>
+                       </property>
+                       <property name="minimum">
+                        <double>0.000000000000000</double>
+                       </property>
+                       <property name="maximum">
+                        <double>5.000000000000000</double>
+                       </property>
+                       <property name="singleStep">
+                        <double>0.500000000000000</double>
+                       </property>
+                       <property name="value">
+                        <double>0.500000000000000</double>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="0" column="3">
+                      <widget class="QLabel" name="label_9">
+                       <property name="text">
+                        <string>Final Voltage</string>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </item>
+                   <item>
+                    <layout class="QGridLayout" name="gridLayout_23">
+                     <item row="2" column="0">
+                      <widget class="QLabel" name="label_34">
+                       <property name="text">
+                        <string>Number of measurements</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="2" column="1">
+                      <widget class="QSpinBox" name="spinBox_nRepeatsIV">
+                       <property name="accessibleName">
+                        <string>nRepeatsIV</string>
+                       </property>
+                       <property name="minimum">
+                        <number>1</number>
+                       </property>
+                       <property name="maximum">
+                        <number>999</number>
+                       </property>
+                       <property name="value">
+                        <number>10</number>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="0" column="0">
+                      <widget class="QCheckBox" name="checkBox_ivLoop">
+                       <property name="accessibleName">
+                        <string>ivLoop</string>
+                       </property>
+                       <property name="text">
+                        <string>Loop this measurement?</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="3" column="0">
+                      <widget class="QLabel" name="label_28">
+                       <property name="text">
+                        <string>Pause Time</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="3" column="1">
+                      <widget class="QDoubleSpinBox" name="doubleSpinBox_IVlooptime">
+                       <property name="accessibleName">
+                        <string>ivLoopPauseTime</string>
+                       </property>
+                       <property name="decimals">
+                        <number>1</number>
+                       </property>
+                       <property name="maximum">
+                        <double>999.000000000000000</double>
+                       </property>
+                       <property name="value">
+                        <double>1.000000000000000</double>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="3" column="2">
+                      <widget class="QComboBox" name="comboBox_2">
+                       <item>
+                        <property name="text">
+                         <string>minutes</string>
                         </property>
                        </item>
                       </widget>
@@ -1357,7 +1436,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>605</width>
+     <width>680</width>
      <height>26</height>
     </rect>
    </property>

@@ -29,6 +29,10 @@ integrationTime,,,Integration Time,setup
 route,Front,,setup,*setup
 takefixedV,NA,NA,Parameters,*parameters
 takeIVsweep,NA,NA,Parameters,*parameters
+ivLoop,NA,NA,Parameters,*parameters
+forANDrev,NA,NA,Parameters,*parameters
+ivLoopPauseTime,s, s, IV Loop Time,parameters
+nRepeatsIV,,NA,Number of IVs,parameters
 fixedV,V, V,Fixed Voltage,parameters
 fixedV_units,V, V,Fixed Voltage,units
 nRepeatsV,,NA,Number of Samples,parameters
