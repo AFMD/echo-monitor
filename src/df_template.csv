@@ -35,11 +35,13 @@ ivLoopPauseTime,s, s, IV Loop Time,parameters
 nRepeatsIV,,NA,Number of IVs,parameters
 fixedV,V, V,Fixed Voltage,parameters
 fixedV_units,V, V,Fixed Voltage,units
+constantV,NA,NA,Parameters,*parameters
 nRepeatsV,,NA,Number of Samples,parameters
 pauseTimeV,s, s,Pause Time [Voltage],parameters
 takefixedI,NA,NA,Parameters,*parameters
 fixedI,I, A,Fixed Current,parameters
 fixedI_units,I, A,Fixed Current,units
+constantI,NA,NA,Parameters,*parameters
 nRepeatsI,,NA,Number of Samples,parameters
 pauseTimeI,s, s,Pause Time [Current],parameters
 inficonAddr,Addr,Addr,setup,*setup

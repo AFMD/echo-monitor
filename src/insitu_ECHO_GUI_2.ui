@@ -213,6 +213,16 @@
                     </widget>
                    </item>
                    <item>
+                    <widget class="QCheckBox" name="checkBox_constantI">
+                     <property name="accessibleName">
+                      <string>constantI</string>
+                     </property>
+                     <property name="text">
+                      <string>Keep current souce ON during pause time?</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
                     <layout class="QGridLayout" name="gridLayout_10">
                      <item row="1" column="1">
                       <widget class="QDoubleSpinBox" name="doubleSpinBox_Voltage_2">
@@ -365,6 +375,19 @@
                     </widget>
                    </item>
                    <item>
+                    <widget class="QCheckBox" name="checkBox_constantV">
+                     <property name="accessibleName">
+                      <string>constantV</string>
+                     </property>
+                     <property name="text">
+                      <string>Keep voltage source ON during pause time?</string>
+                     </property>
+                     <property name="checked">
+                      <bool>false</bool>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
                     <layout class="QGridLayout" name="gridLayout_3">
                      <item row="1" column="2">
                       <widget class="QComboBox" name="fixedV_units">
@@ -415,10 +438,13 @@
                         <string/>
                        </property>
                        <property name="decimals">
-                        <number>1</number>
+                        <number>2</number>
+                       </property>
+                       <property name="minimum">
+                        <double>-50.000000000000000</double>
                        </property>
                        <property name="maximum">
-                        <double>100.000000000000000</double>
+                        <double>50.000000000000000</double>
                        </property>
                        <property name="value">
                         <double>1.000000000000000</double>

@@ -64,6 +64,7 @@ class k2400():
 	def measV(self, pars):
 		'''take a current measurement at fixed voltage V'''
 		self.write(':SYST:BEEP:STAT OFF') #TURN OFF annoying beeb
+		self.write("SYST:RSEN %s"%pars['4wire']) #4 wire measurement or two wire?
 		self.write(':TRIG:COUN 1')	#set to output 1 pulse
 		self.write(':SOUR:FUNC VOLT')	#SELECT SOURCE
 		self.write(':SENS:FUNC:CONC OFF') #do not measure both V and I concurrently
@@ -78,12 +79,18 @@ class k2400():
 		self.write(':OUTP ON')
 		#print(self.query(':READ?'))
 		v, i =[float(x) for x in self.query('READ?').split(',')] #break data str into values
-		self.write('OUTP OFF')
+		
+		if pars['constantV'] == True:	# Keep supply on if checkbox is ticked otherwise turn off
+			pass
+		else:
+			self.write('OUTP OFF')
+			
 		return v, i
 	
 	def measI(self, pars):
 		'''Push current I and measure voltage'''
 		self.write(':SYST:BEEP:STAT OFF') #TURN OFF annoying beeb
+		self.write("SYST:RSEN %s"%pars['4wire']) #4 wire measurement or two wire?
 		self.write(':TRIG:COUN 1')	#set to output 1 pulse
 		self.write(':SOUR:FUNC CURR')	#SELECT SOURCE
 		#self.write(':SENS:FUNC:CONC OFF') #do not measure both V and I concurrently
@@ -98,7 +105,12 @@ class k2400():
 		self.write(':OUTP ON')
 		#print(self.query(':READ?'))
 		v, i =[float(x) for x in self.query('READ?').split(',')] #break data str into values
-		self.write('OUTP OFF')
+		
+		if pars['constantI'] == True:	# Keep supply on if checkbox is ticked otherwise turn off
+			pass
+		else:
+			self.write('OUTP OFF')
+		
 		return i, v	
 	
 	def measIVsweep(self, pars):

@@ -2,6 +2,7 @@ import visa
 import pandas as pd
 import numpy as np
 from PyQt4.QtGui import *
+from PyQt4.QtCore import *
 import os
 import sys
 import glob
@@ -159,7 +160,8 @@ def setWidgetValue(w, v):
 	elif type(w) == QSpinBox or type(w) == QDoubleSpinBox:
 		w.setValue(float(v))
 	elif type(w) == QComboBox:
-		pass #kind of annoying as these work in index, need to loop until find right index	
+		index = w.findText(v, Qt.MatchFixedString)
+		w.setCurrentIndex(index)	
 	elif type(w) == QRadioButton or type(w) == QCheckBox:
 		if v == 'False': w.setChecked(False)
 		if v == 'True': w.setChecked(True)

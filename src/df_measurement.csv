@@ -1,15 +1,15 @@
  --- Insitu ECHO meas template for data-frame used to store inputs and write file header - change at your own risk---,,,,
 key,value,units,fmf_name,fmf_category
-exp_name,test5, ,Experiment,*reference
-sample,test5, ,Sample,*reference
+exp_name, , ,Experiment,*reference
+sample, , ,Sample,*reference
 user,ross, ,User,*reference
-date,2017-12-08 17:55:34.945059, ,Date,*reference
+date,2018-02-26 12:30:45.781519, ,Date,*reference
 setup,IVsweep, ,Experimental_setup,setup
 vers,2, ,Software_version,setup
 loc,"AFMD lab, ECHO", ,Location,setup
-x_descript,V,/V,X_column,*data definitions
-y_descript,I,/A,Y_column,*data definitions
-sav_loc,/home/ross/Desktop/test/, , , 
+x_descript,Voltage,[V],X_column,*data definitions
+y_descript,Current,[A],Y_column,*data definitions
+sav_loc,/home/ross/git/echo-monitor, , , 
 rec_len, , , , 
 initialV,-10.0, V,Initial_V,parameters
 initialV_units,1, V,Initial_V_units,units
@@ -22,24 +22,26 @@ baudR,57600,baudRate,setup,*setup
 termChar,\r,termChar,setup,*setup
 connectionType,Serial,Connection,setup,*setup
 connectionAddr,/dev/ttyUSB0,Addr,setup,*setup
-4wire,Off, ,Four_wire,setup
+4wire,On, ,Four_wire,setup
 complianceV,0, ,Compliance Exponent [Voltage],setup
 complianceI,-3, ,Compliance Exponent [Current],setup
 integrationTime,1, ,Integration Time,setup
-route,Front, ,setup,*setup
+route,Rear, ,setup,*setup
 takefixedV,False, ,Parameters,*parameters
 takeIVsweep,True, ,Parameters,*parameters
-ivLoop,True, ,Parameters,*parameters
-forANDrev,True, ,Parameters,*parameters
-ivLoopPauseTime,0.1, s, IV Loop Time,parameters
-nRepeatsIV,3, ,Number of IVs,parameters
+ivLoop,False, ,Parameters,*parameters
+forANDrev,False, ,Parameters,*parameters
+ivLoopPauseTime,1.0, s, IV Loop Time,parameters
+nRepeatsIV,10, ,Number of IVs,parameters
 fixedV, , V,Fixed Voltage,parameters
 fixedV_units,1, V,Fixed Voltage,units
+constantV,False, ,Parameters,*parameters
 nRepeatsV, , ,Number of Samples,parameters
 pauseTimeV, , s,Pause Time [Voltage],parameters
 takefixedI,False, ,Parameters,*parameters
 fixedI, , A,Fixed Current,parameters
 fixedI_units,1e-06, A,Fixed Current,units
+constantI,False, ,Parameters,*parameters
 nRepeatsI, , ,Number of Samples,parameters
 pauseTimeI, , s,Pause Time [Current],parameters
 inficonAddr,/dev/ttyS0,Addr,setup,*setup
