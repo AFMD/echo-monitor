@@ -57,6 +57,7 @@ class IV_Engine():
             
             self.newfixedVDataPoint.emit(data) # for live update plus append save
             time.sleep(float(self.user_parameters.value['pauseTimeV'])) #Time between measurements
+        smu.write('OUTP OFF')
         data = t, v, i
         return v, i
     
@@ -93,6 +94,7 @@ class IV_Engine():
             
             self.newfixedVDataPoint.emit(data) # for live update plus save append
             time.sleep(float(self.user_parameters.value['pauseTimeI'])) #Time between measurements
+        smu.write('OUTP OFF')
         data = t, i, v
         return v, i    
     

@@ -82,7 +82,7 @@ class k2400():
 		
 		if pars['constantV'] == True:	# Keep supply on if checkbox is ticked otherwise turn off
 			pass
-		else:
+		elif pars['constantV'] == False:
 			self.write('OUTP OFF')
 			
 		return v, i
@@ -108,7 +108,7 @@ class k2400():
 		
 		if pars['constantI'] == True:	# Keep supply on if checkbox is ticked otherwise turn off
 			pass
-		else:
+		elif pars['constantI'] == False:
 			self.write('OUTP OFF')
 		
 		return i, v	
