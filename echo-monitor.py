@@ -2,7 +2,7 @@
 #coding:utf-8
 """
   Author:   Ross <ross.warren@pm.me>
-  Purpose:  Run to give live readings of ECHO presure, src temp and rates.
+  Purpose:  Run to give monitor ECHO presure, src temp and rates.
   Created:  17/02/19
 """
 
@@ -11,7 +11,7 @@ from drivers.inficonDriver import inficon310C
 from drivers.pressureDriver import TPG261
 
 import datetime
-import numpy as np
+import csv
 from time import sleep
 
 
@@ -35,24 +35,32 @@ def makeConnections():
 
 
 # ----------------------------------------------------------------------
-def liveStats(tcu, pcu, inf):
+def recordECHO(tcu, pcu, inf):
         """Continuosly check ECHO status"""
-        now = datetime.datetime.now()
 
-        temp = []
+        # Path and filename of data
+        now = datetime.datetime.now()
+        path = 'saved-logs/'
+        filename = str(str(now.date()) + '-' + str(now.hour) + '-' + str(now.minute) + '-ECHO-LOG.csv')
+
+        # Create file and add header
+        with open(str(path + filename), 'x') as f:
+                writer = csv.writer(f)
+                header = ['Sample', 'Temp 1', 'Temp 2', 'Temp 3', 'Rate 1', 'Rate 2', 'Rate 3', 'Thick 1', 'Thick 2', 'Thick 3', 'Pressure']
+                writer.writerow(header)
+
         sample = 0
-        sample_max = 13200
+        sample_max = 8640  # 12 hours taking recordings every 5 secs
 
         print ('\n')
         print ('-' * 124)
         print ('{:>4}{:>12}{:>12}{:>12}{:>12}{:>12}{:>12}{:>12}{:>12}{:>12}{:>12}'.format(
                 'Time', 'Temp 1', 'Temp 2', 'Temp 3', 'Rate 1', 'Rate 2', 'Rate 3', 'Thick 1', 'Thick 2', 'Thick 3', 'Pressure'))
-        header = ['Sample', 'Temp 1', 'Temp 2', 'Temp 3', 'Rate 1', 'Rate 2', 'Rate 3', 'Thick 1', 'Thick 2', 'Thick 3', 'Pressure']
 
         print ('-' * 124)
 
         try:
-                # while True:
+                # while un-interrupted by the keyboard, record the following data
                 while sample < sample_max:
                         t1 = float(tcu.read_T(1))				# Temperature channel 1
                         t2 = float(tcu.read_T(2))				# Temperature channel 2
@@ -60,32 +68,34 @@ def liveStats(tcu, pcu, inf):
                         i1 = float(inf.rate(1))					# Inficon channel 1
                         i2 = float(inf.rate(2))					# Inficon channel 2
                         i3 = float(inf.rate(3))					# Inficon channel 3
-                        th1 = float(inf.thickness(1))			# Inficon channel 1
-                        th2 = float(inf.thickness(2))			# Inficon channel 2
-                        th3 = float(inf.thickness(3))			# Inficon channel 3
+                        th1 = float(inf.thickness(1))			        # Inficon channel 1
+                        th2 = float(inf.thickness(2))			        # Inficon channel 2
+                        th3 = float(inf.thickness(3))			        # Inficon channel 3
 
                         try:
-                                p = pcu.pressure_gauge(gauge=1)		# Pressure
+                                p = pcu.pressure_gauge(gauge=1)		        # Pressure
                         except IOError:
-                                p = 1010
+                                p = 1010                                        # Atmospheric pressure
 
                         print('{:>4}{:>12}{:>12}{:>12}{:>12}{:>12}{:>12}{:>12}{:>12}{:>12}{:>12}'.format(sample, t1, t2, t3, i1, i2, i3, th1, th2, th3, p), end='\r')
-                        temp.append([sample, t1, t2, t3, i1, i2, i3, th1, th2, th3, p])
+                        log = [sample, t1, t2, t3, i1, i2, i3, th1, th2, th3, p]
+                        
+                        # Append readings to log file
+                        with open(str(path + filename), 'a') as f:
+                                writer = csv.writer(f)
+                                writer.writerow(header)
 
                         sample += 1
-                        sleep(1)
+                        sleep(2)
 
         except KeyboardInterrupt:
-                filename = str(str(now.date()) + '-' + str(now.hour) + '-' + str(now.hour) + '-ECHO-LOG.csv')
-                np.savetxt(filename, temp, delimiter=',', header=header)
                 print('\nInterrupted!\n')
+                print('\nLogfile saved:', path, filename)
 
-        filename = str(str(now.date()) + '-' + str(now.hour) + '-' + str(now.hour) + '-ECHO-LOG.csv')
-        np.savetxt(filename, temp, delimiter=',', header=header)
-
+        print('\nLog file maxed.\n')
+        print('\nLogfile saved:', path, filename)                
 
 
 if __name__ == "__main__":
         tcu, pcu, inf = makeConnections()
-        liveStats(tcu, pcu, inf)
-        print ("\n\nComplete\n")
+        recordECHO(tcu, pcu, inf)
