@@ -40,7 +40,7 @@ def plotStats(data):
 
     axarr[0, 0].set_title('Source Temperatures')
     axarr[0, 0].plot(data['Sample'] / 60, data['Temp 1'], '.', label='Channel 1')
-    axarr[0, 0].plot(data['Sample'] / 60, data['Temp 2'], '.', label='Channel 2')
+    # axarr[0, 0].plot(data['Sample'] / 60, data['Temp 2'], '.', label='Channel 2')
     axarr[0, 0].plot(data['Sample'] / 60, data['Temp 3'], '.', label='Channel 3')
     axarr[0, 0].set_xlabel('Time [mins]')
     axarr[0, 0].set_ylabel('Temperature [C]')
@@ -52,7 +52,7 @@ def plotStats(data):
 
     axarr[0, 1].set_title('Source Rates')
     axarr[0, 1].plot(data['Sample'] / 60, data['Rate 1'], '.', label='Channel 1')
-    axarr[0, 1].plot(data['Sample'] / 60, data['Rate 2'], '.', label='Channel 2')
+    # axarr[0, 1].plot(data['Sample'] / 60, data['Rate 2'], '.', label='Channel 2')
     axarr[0, 1].plot(data['Sample'] / 60, data['Rate 3'], '.', label='Channel 3')
     axarr[0, 1].set_ylim(-0.2, 0.3)
     axarr[0, 1].set_xlabel('Time [mins]')
@@ -62,7 +62,7 @@ def plotStats(data):
 
     axarr[1, 0].set_title('Film thickness')
     axarr[1, 0].plot(data['Sample'] / 60, data['Thick 1'], '.', label='Channel 1')
-    axarr[1, 0].plot(data['Sample'] / 60, data['Thick 2'], '.', label='Channel 2')
+    # axarr[1, 0].plot(data['Sample'] / 60, data['Thick 2'], '.', label='Channel 2')
     axarr[1, 0].plot(data['Sample'] / 60, data['Thick 3'], '.', label='Channel 3')
     axarr[1, 0].set_xlabel('Time [mins]')
     axarr[1, 0].set_ylabel('Film thickness [nm]')
@@ -105,28 +105,28 @@ def plotStatsPub(data):
     
     fig, axarr = plt.subplots(2, 2, figsize=(16, 8))
 
-    # Chamber vent lines
-    axarr[0, 0].axvline(x=78.65, color='black', alpha=0.6)
-    axarr[0, 1].axvline(x=78.65, color='black', alpha=0.6)
-    axarr[1, 0].axvline(x=78.65, color='black', alpha=0.6)
-    axarr[1, 1].axvline(x=78.65, color='black', alpha=0.6)
+    ## Chamber vent lines
+    #axarr[0, 0].axvline(x=78.65, color='black', alpha=0.6)
+    #axarr[0, 1].axvline(x=78.65, color='black', alpha=0.6)
+    #axarr[1, 0].axvline(x=78.65, color='black', alpha=0.6)
+    #axarr[1, 1].axvline(x=78.65, color='black', alpha=0.6)
     
-    # Shutter opens lines
-    axarr[0, 0].axvline(x=39.3, color='green', alpha=0.6)
-    axarr[0, 1].axvline(x=39.3, color='green', alpha=0.6)
-    axarr[1, 0].axvline(x=39.3, color='green', alpha=0.6)
-    axarr[1, 1].axvline(x=39.3, color='green', alpha=0.6)
+    ## Shutter opens lines
+    #axarr[0, 0].axvline(x=39.3, color='green', alpha=0.6)
+    #axarr[0, 1].axvline(x=39.3, color='green', alpha=0.6)
+    #axarr[1, 0].axvline(x=39.3, color='green', alpha=0.6)
+    #axarr[1, 1].axvline(x=39.3, color='green', alpha=0.6)
   
-    # Shutter closes lines
-    axarr[0, 0].axvline(x=46.4, color='red', alpha=0.6)
-    axarr[0, 1].axvline(x=46.4, color='red', alpha=0.6)
-    axarr[1, 0].axvline(x=46.4, color='red', alpha=0.6)
-    axarr[1, 1].axvline(x=46.4, color='red', alpha=0.6)
+    ## Shutter closes lines
+    #axarr[0, 0].axvline(x=46.4, color='red', alpha=0.6)
+    #axarr[0, 1].axvline(x=46.4, color='red', alpha=0.6)
+    #axarr[1, 0].axvline(x=46.4, color='red', alpha=0.6)
+    #axarr[1, 1].axvline(x=46.4, color='red', alpha=0.6)
 
 
     # axarr[0, 0].set_title('Source Temperatures')
     axarr[0, 0].plot(data['Sample'] / 60, data['Temp 1'], '.', label='Channel 1', markersize=markerSize)
-    axarr[0, 0].plot(data['Sample'] / 60, data['Temp 2'], '.', label='Channel 2', markersize=markerSize)
+    # axarr[0, 0].plot(data['Sample'] / 60, data['Temp 2'], '.', label='Channel 2', markersize=markerSize)
     axarr[0, 0].plot(data['Sample'] / 60, data['Temp 3'], '.', label='Channel 3', markersize=markerSize)
     axarr[0, 0].set_xlabel('Time [mins]')
     axarr[0, 0].set_ylabel('Temperature [C]')
@@ -140,9 +140,9 @@ def plotStatsPub(data):
 
     # axarr[0, 1].set_title('Source Rates')
     axarr[0, 1].plot(data['Sample'] / 60, data['Rate 1'], '.', label='Channel 1', markersize=markerSize)
-    axarr[0, 1].plot(data['Sample'] / 60, data['Rate 2'], '.', label='Channel 2', markersize=markerSize)
+    # axarr[0, 1].plot(data['Sample'] / 60, data['Rate 2'], '.', label='Channel 2', markersize=markerSize)
     axarr[0, 1].plot(data['Sample'] / 60, data['Rate 3'], '.', label='Channel 3', markersize=markerSize)
-    axarr[0, 1].set_ylim(-0.2, 0.3)
+    axarr[0, 1].set_ylim(-0.1, 0.1)
     axarr[0, 1].set_xlabel('Time [mins]')
     axarr[0, 1].set_ylabel('Rate [\AA/s]')
     axarr[0, 1].tick_params('y', which='both', colors='k', direction='in')
@@ -153,7 +153,7 @@ def plotStatsPub(data):
 
     # axarr[1, 0].set_title('Film thickness')
     axarr[1, 0].plot(data['Sample'] / 60, data['Thick 1'] * 100, '.', label='Channel 1', markersize=markerSize)
-    axarr[1, 0].plot(data['Sample'] / 60, data['Thick 2'] * 100, '.', label='Channel 2', markersize=markerSize)
+    # axarr[1, 0].plot(data['Sample'] / 60, data['Thick 2'] * 100, '.', label='Channel 2', markersize=markerSize)
     axarr[1, 0].plot(data['Sample'] / 60, data['Thick 3'] * 100, '.', label='Channel 3', markersize=markerSize)
     axarr[1, 0].set_xlabel('Time [mins]')
     axarr[1, 0].set_ylabel('Thickness [nm]')
@@ -169,15 +169,15 @@ def plotStatsPub(data):
     axarr[1, 1].set_ylabel('Pressure [mBar]')
     axarr[1, 1].tick_params('y', which='both', colors='k', direction='in')
     axarr[1, 1].tick_params('x', colors='k', direction='in')
-    axarr[1, 1].set_ylim(1e-7, 1.18e-6)
+    #axarr[1, 1].set_ylim(2e-6, 8e-6)
     axarr[1, 1].grid()
-    axarr[1, 1].legend()
+    # axarr[1, 1].legend()
 
     fig.set_size_inches(width, height)
-    fig.subplots_adjust(left=.08, bottom=.09, right=.98, top=.98, hspace=0.28, wspace=0.28)
-    fig.savefig('example_plots/trip_evap_example.eps', dpi=300)
+    fig.subplots_adjust(left=.08, bottom=.09, right=.98, top=.98, hspace=0.28, wspace=0.4)
+    fig.savefig('/home/ross/physics/projects/98-ECHO/FIGURES/20190516-ECHO-LOG-alq3-pid.pdf', dpi=300)
 
 
 if __name__ == "__main__":
-    df = readcsv('example_plots/evap-combo.csv')
-    plotStats(df)
+    df = readcsv('/home/ross/physics/projects/98-ECHO/DATA/20190516-ECHO-LOG-alq3-pid.csv')
+    plotStatsPub(df)
