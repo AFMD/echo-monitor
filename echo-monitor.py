@@ -50,7 +50,7 @@ def recordECHO(tcu, pcu, inf):
                 writer.writerow(header)
 
         sample = 0
-        sample_max = 8640  # 12 hours taking recordings every 5 secs
+        sample_max = 21600  # 12 hours taking recordings every 2 secs
 
         print ('\n')
         print ('-' * 124)
@@ -83,17 +83,15 @@ def recordECHO(tcu, pcu, inf):
                         # Append readings to log file
                         with open(str(path + filename), 'a') as f:
                                 writer = csv.writer(f)
-                                writer.writerow(header)
+                                writer.writerow(log)
 
                         sample += 1
                         sleep(2)
 
         except KeyboardInterrupt:
                 print('\nInterrupted!\n')
-                print('\nLogfile saved:', path, filename)
 
-        print('\nLog file maxed.\n')
-        print('\nLogfile saved:', path, filename)                
+        print('\nLogfile saved:', path, filename)
 
 
 if __name__ == "__main__":
