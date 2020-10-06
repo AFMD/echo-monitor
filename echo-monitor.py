@@ -46,7 +46,9 @@ def recordECHO(tcu, pcu, inf):
         # Create file and add header
         with open(str(path + filename), 'x') as f:
                 writer = csv.writer(f)
+                metadata = 'Evap Log/n'+str(now)+'/n *QCM Info* /n Channel 1: ' + inf.crystal_stats(1)+'/n Channel 2: ' + inf.crystal_stats(2) + '/n Channel 3: ' + inf.crystal_stats(3) + '/n Channel 4: ' + inf.crystal_stats(4)
                 header = ['Sample', 'Temp 1', 'Temp 2', 'Temp 3', 'Rate 1', 'Rate 2', 'Rate 3', 'Thick 1', 'Thick 2', 'Thick 3', 'Pressure']
+                writer.writerow(metadata)
                 writer.writerow(header)
 
         sample = 0
